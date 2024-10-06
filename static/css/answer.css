@@ -1,0 +1,167 @@
+/* Импорт шрифта */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+/* Общие стили */
+body {
+    background-color: #000000;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    background-image: url("/static/uploads/pid.jpg"); /* Правильный путь к изображению */
+    background-size: cover; /* Растягиваем на весь экран */
+    background-position: center;
+    background-attachment: fixed; /* Фиксируем фон при прокрутке */
+}
+
+
+/* Заголовок таблицы */
+div.table-title {
+    display: block;
+    margin: auto;
+    max-width: 600px;
+    padding: 5px;
+    width: 100%;
+}
+
+.table-title h3 {
+    color: #000000;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    text-shadow: -1px -1px 1px rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+/*** Table Styles **/
+
+/* Плавное появление таблицы */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Пульсация строк */
+@keyframes rowPulse {
+    0% {
+        background-color: #ffee01;
+    }
+    50% {
+        background-color: #ffee01;
+    }
+    100% {
+        background-color: #ffee01;
+    }
+}
+
+/* Таблица */
+.table-fill {
+    background: rgba(0, 0, 0, 0.8); /* Прозрачный фон для видимости текста */
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: 320px;
+    margin: auto;
+    max-width: 600px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.192);
+    animation: fadeIn 2s ease-in-out; /* Анимация появления таблицы */
+}
+
+/* Заголовок таблицы */
+th {
+    color: #ffe60094;
+    background: #b8c503;
+    border-bottom: 4px solid #000000;
+    border-right: 1px solid #cac700;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 24px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgb(0, 0, 0);
+    vertical-align: middle;
+}
+
+th:first-child {
+    border-top-left-radius: 3px;
+}
+
+th:last-child {
+    border-top-right-radius: 3px;
+    border-right: none;
+}
+
+/* Строки таблицы */
+tr {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+    animation: rowPulse 4s infinite ease-in-out; /* Анимация пульсации строк */
+}
+
+/* Эффект при наведении на строку */
+tr:hover td {
+    background: #00000054;
+    color: #e5ff00be;
+    border-top: 1px solid #ffd90060;
+}
+
+/* Чередование цветов для строк */
+tr:nth-child(odd) td {
+    background: #d9ff00;
+}
+
+tr:nth-child(odd):hover td {
+    background: #000000;
+}
+
+/* Ячейки */
+td {
+    background: #fffb009a;
+    padding: 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px #fffb009a;
+    border-right: 1px solid #fffb009a;
+}
+
+td:last-child {
+    border-right: 0px;
+}
+
+/* Стили текстового выравнивания */
+th.text-left {
+    text-align: left;
+}
+
+th.text-center {
+    text-align: center;
+}
+
+th.text-right {
+    text-align: right;
+}
+
+td.text-left {
+    text-align: left;
+}
+
+td.text-center {
+    text-align: center;
+}
+
+td.text-right {
+    text-align: right;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Deletion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/answer.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="table-title">
+        <h3>Data Table</h3>
+    </div>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">вік</th>
+                <th class="text-center">пол</th>
+                <th class="text-center">цвет</th>
+                <th class="text-center">ім'я</th>
+                <th class="text-center">рост</th>
+                <th class="text-center">картинка</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            {% for user in obj %}
+            <tr id="row-{{ user[0] }}">
+                <td class="text-center">{{ user[0] }}</td>
+                <td class="text-center">{{ user[1] }}</td>
+                <td class="text-center">{{ user[2] }}</td>
+                <td class="text-center">{{ user[3] }}</td>
+                <td class="text-center">{{ user[4] }}</td>
+                <td class="text-center">{{ user[5] }}</td>
+                <td class="text-center">
+                    <img width="150px" height="150px" src="{{ url_for('static', filename='uploads/' + user[6]) }}" alt="{{ user[6] }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        $(document).on('keypress', function(event) {
+            var key = event.key;  // Получаем нажатую клавишу
+            if (key = "R") {  // Проверяем, что это клавиши от 1 до 9
+                var rowId = parseInt(key);  // Преобразуем символ клавиши в число (ID строки)
+                $.post('/delete', { row_id: rowId }, function(response) {
+                    if (response.status === 'success') {
+                        $('#row-' + rowId).remove();  // Удалить строку из таблицы
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Сайт</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main>
+            </section>
+
+            <section class="form-section">
+                <h2>Patient Input Form</h2>
+                <form id="patient-form" action="/answer" method="post" enctype="multipart/form-data">
+                    <label for="file">Картинка:</label>
+                    <input type="file" id="Вік" name="file" required>
+
+                    <label for="Вік">Age:</label>
+                    <input type="number" id="Вік" name="Вік" required>
+
+                    <label for="Пол">Sex:</label>
+                    <select id="Пол" name="Пол" required>
+                        <option value="парень">Male</option>
+                        <option value="дівчина">Female</option>
+                        <option value="non-binary">Non-binary</option>
+                    </select>
+
+                    <label for="race">Race:</label>
+                    <select id="race" name="race" required>
+                        <option value="white">White</option>
+                        <option value="hispanic">Hispanic</option>
+                        <option value="black">Black</option>
+                        <option value="asian">Asian</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="рост">Weight(kg):</label>
+                    <input type="number" id="рост" name="рост" required>
+
+                    <label for="ім'я">Name(PHIO):</label>
+                    <input type="text" id="рост" name="ім'я" required>
+
+                    
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        </div>
+    </footer>
+</body>
+
+</html>
